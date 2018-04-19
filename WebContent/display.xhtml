@@ -1,0 +1,95 @@
+<!-- 
+SWE 654
+Assignment 2
+Saurabh Singh
+
+This is a Display page, It is mapped against a string value in the jsf config file.
+whenever any user submits a survey form and the calculated value of the raffle (10 number entered by
+the user i the raffle field) whether they win movie ticket or not, their information
+will be stored inside an array list and when the user or admin wants to see the list of all the
+survey that has been entered till now, they can use this page to list them all.
+
+ -->
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+		xmlns:h="http://xmlns.jcp.org/jsf/html"
+		xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Student Information</title>
+    </h:head>
+    <h:body>
+    	<!-- <h:link value="BackToSurvey" outcome="SurveyForm" ></h:link> -->
+        <h1 align="center">List of all the Surveys</h1>
+        
+        <h:dataTable value="#{studentInfo.studData}" var="student" border="1">
+            <h:column>
+                <f:facet name="header">First name</f:facet>
+                #{student.firstName}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Last name</f:facet>
+                #{student.lastName} 
+            </h:column>
+            <h:column>
+                <f:facet name="header">Street</f:facet>
+                #{student.street} 
+            </h:column>
+            <h:column>
+                <f:facet name="header">City</f:facet>
+                #{student.city}
+            </h:column>
+            <h:column>
+                <f:facet name="header">State</f:facet>
+                #{student.state}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Zip</f:facet>
+                #{student.zip}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Telephone</f:facet>
+                #{student.phoneNumber}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Date</f:facet>
+                #{student.date}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Email</f:facet>
+                #{student.email}
+            </h:column>  
+            
+            <h:column>
+                <f:facet name="header">Sem Start Date</f:facet>
+                #{student.semDate}
+            </h:column>  
+            
+                    
+            <h:column> 
+                <f:facet name="header">Liking</f:facet>
+                #{student.liking}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Interested</f:facet>
+                #{student.interested}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Recommendation</f:facet>
+                #{student.recommendation}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Raffle</f:facet>
+                #{student.raffle}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Comments</f:facet>
+                #{student.comment}
+            </h:column>
+        </h:dataTable> 
+     
+    </h:body>
+</html>
+

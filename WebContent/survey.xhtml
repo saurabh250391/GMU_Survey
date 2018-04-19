@@ -1,0 +1,291 @@
+<!-- 
+SWE 654
+Assignment 2
+Saurabh Singh
+
+Survey file containing the HTML code for the the survey page for assignment number 2
+It is an enhancement to the assignment number 1, I have added the JSF library and used
+JSF h and f tags to take the form input and set them in the managed bean using JSF Expression
+language.
+ -->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<h:html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>GMU CS department Survey</title>
+	<style type="text/css">
+table {
+	border: 1px solid grey;
+	width: 80%;
+}
+
+th, td {
+	text-align: left;
+	padding: 8px;
+}
+
+#survey_header {
+	color: White;
+	padding: 15px;
+	font-size: 30px;
+	line-height: 2px;
+	background-color: #217c7a;
+	padding: 65px;
+	text-align: center;
+}
+
+.ui-button {
+	
+	
+	background-color: black;
+	color: white;
+	border: 1 px solid black;
+	padding: 20 px 35 px;
+	border-radius: 10px;
+	
+}
+
+#survey_header h3 {
+	margin: 0;
+	line-height: 40px;
+	text-shadow: 5px 3px 10px gold;
+	color: white;
+	font-family: "Arial Black";
+}
+
+#survey_body {
+	margin-left: 50px;
+	margin-right: auto;
+	padding: 10px;
+}
+
+body {
+	background-color: #EFF0E7;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+textarea, select, datalist {
+	box-sizing: border-box;
+	border: 2px solid green;
+}
+
+
+input[type=text] {
+	width: 25%;
+	padding: 12px 20px;
+	margin: 6px 0;
+	box-sizing: border-box;
+	border: 2px solid green;
+	border-radius: 2px;
+	width: 50%;
+}
+
+input[type=tel], input[type=email], input[type=date], input[type=number],
+	input[type=address] {
+	padding: 12px 20px;
+	margin: 6px 0;
+	box-sizing: border-box;
+	border: 2px solid green;
+	border-radius: 2px;
+	width: 50%;
+}
+
+#sub, #res {
+	color: black;
+	padding: 100 px;
+	width: :100px;
+	height: 50px;
+	text-align: center;
+}
+
+.label:after {
+	content: '\n';
+	white-space: pre;
+}
+
+</style>
+
+</h:head>
+
+<h:body>
+	<div id="survey_header">
+		<h3 align="center">George Mason Computer Science Department</h3>
+		<h3 align="center">Survey Page</h3>
+	</div>
+
+
+	<h:form id="myForm" method="post" autocomplete="on">
+		<h:panelGrid columns="3" border="1" align="center">
+
+			<h:outputText value="First Name : " />
+			<p:inputText value="#{studentInfo.firstName}" required="true"
+				requiredMessage="You must enter First Name" id="firstName"
+				validatorMessage="Enter only alphabets and should be less than 15 characters.">
+				<f:validateRegex pattern="[a-zA-Z ]*" />
+				<f:validateLength maximum="15" />
+			</p:inputText>
+			<p:message for="firstName" />
+
+
+
+			<h:outputText value="Last Name : " />
+			<p:inputText value="#{studentInfo.lastName}" required="true"
+				requiredMessage="You must enter Last Name" id="lastName"
+				validatorMessage="Enter only alphabets and should be less than 15 characters.">
+				<f:validateRegex pattern="[a-zA-Z ]*" />
+				<f:validateLength maximum="15" />
+			</p:inputText>
+			<p:message for="lastName" />
+
+
+			<h:outputText value="Street Address :" />
+			<p:inputText value="#{studentInfo.street}" required="true"
+				requiredMessage="You must enter a valid Address" id="street"
+				validatorMessage="Enter only alphabets and numbers and should be less than or equal to 30 characters.">
+				<f:validateRegex pattern="[a-zA-Z0-9 ]*" />
+				<f:validateLength maximum="30" />
+			</p:inputText>
+			<p:message for="street" />
+
+
+			<h:outputText value="city :" />
+			<p:inputText value="#{studentInfo.city}" required="true"
+				requiredMessage="You must a City Name" id="city"
+				validatorMessage="Enter only alphabets and numbers and should be less than or equal to 30 characters.">
+				<f:validateRegex pattern="[a-zA-Z]*" />
+				<f:validateLength maximum="30" />
+			</p:inputText>
+			<p:message for="city" />
+
+
+			<h:outputText value="State :" />
+			<p:inputText value="#{studentInfo.state}" required="true"
+				requiredMessage="You must a State Name" id="state"
+				validatorMessage="Enter only alphabets and numbers and should be less than or equal to 30 characters.">
+				<f:validateRegex pattern="[a-zA-Z ]+" />
+				<f:validateLength maximum="30" />
+			</p:inputText>
+			<p:message for="state" />
+
+
+			<h:outputText value="ZIP : " />
+			<p:inputText value="#{studentInfo.zip}" required="true"
+				requiredMessage="You must enter a valid ZIP code" id="zip"
+				validatorMessage="Zip code must be number and exactly 5 digits">
+				<f:validateRegex pattern="[0-9]*" />
+				<f:validateLength minimum="5" maximum="5" />
+				<f:ajax execute="@this" event="blur" render="city state"/>
+			</p:inputText>
+			<p:message for="zip" />
+
+
+
+			<h:outputText value="Phone Number :" />
+			<p:inputMask value="#{studentInfo.phoneNumber}" required="true"
+				id="phoneNumber"
+				requiredMessage="Enter telephone number (###)-###-####"
+				mask="(999) 999-9999"/>
+			<p:message for="phoneNumber" />
+
+
+			<h:outputText value="Survey Date:" />
+			<p:calendar value="#{studentInfo.date}" required="true" id="date"
+				requiredMessage="Enter date of survey (mm-dd-yyyy)"/>
+			<p:message for="date" />
+			
+
+
+			<h:outputText value="Email Address:" />
+			<p:inputText value="#{studentInfo.email}" required="true" id="email"
+				validatorMessage="Enter in the proper format : abc@abc.com">
+				<f:validateRegex pattern="[a-zA-Z0-9._]*@[a-zA-Z0-9.]*.[a-zA-Z0-9]*" />
+			</p:inputText>
+			<p:message for="email" />
+			
+			
+			<h:outputText value="Semester Start Date:" />
+			<p:calendar value="#{studentInfo.semDate}" required="true" id="semDate"
+				requiredMessage="Enter Semester Start Date (mm-dd-yyyy)"/>
+		<p:message for="semDate" showDetails ="false" autoUpdate="true"/>
+
+
+			<h:outputText value="What do you like the most about Mason: " />
+			<p:selectManyCheckbox value="#{studentInfo.liking}" id="likeMason">
+				<f:selectItem itemValue="Student" itemLabel="Student" />
+				<f:selectItem itemValue="location" itemLabel="Location" />
+				<f:selectItem itemValue="campus" itemLabel="Campus" />
+				<f:selectItem itemValue="atmosphere" itemLabel="Atmosphere" />
+				<f:selectItem itemValue="dorms" itemLabel="Dorms" />
+				<f:selectItem itemValue="sports" itemLabel="Sports" />
+			</p:selectManyCheckbox>
+			<p:message for="likeMason" />
+
+			
+
+			<h:outputText value="How you became interested in the university: " />
+			<p:selectOneRadio required="true" value="#{studentInfo.interested}"
+				requiredMessage="You must choose one Interest" id="IntMason">
+				<f:selectItem itemValue="friends" itemLabel="Friends" />
+				<f:selectItem itemValue="television" itemLabel="Television" />
+				<f:selectItem itemValue="internet" itemLabel="Internet" />
+				<f:selectItem itemValue="others" itemLabel="Others" />
+			</p:selectOneRadio>
+			<p:message for="IntMason" />
+
+
+			<h:outputText
+				value="likelihood of you recommending this school to other prospective Student: " />
+			<p:autoComplete required="true"
+				value="#{studentInfo.recommendation}"
+				completeMethod="#{studentInfo.NameSuggestion}"
+				forceSelection="true"
+				requiredMessage="You must choose a recommendation of your choice"
+				id="RecMason"/>
+			<p:message for="RecMason" />
+
+
+
+
+			<h:outputText value="Raffle :" />
+			<p:inputText value="#{studentInfo.raffle}" required="true"
+				id="raffle" validatorMessage="Enter raffle data"
+				requiredMessage="You must enter 10 Number in this field" />
+			<p:message for="raffle" />
+
+
+			<h:outputText value="Comment :" />
+			<p:inputText value="#{studentInfo.comment}" required="true"
+				requiredMessage="You must enter a comment " id="comment" />
+			<p:message for="comment" />
+
+
+		</h:panelGrid>
+		<br />
+
+		<div align="center">
+			<p:commandButton class="ui-button" value="Submit"
+				action="#{studentInfo.doProcess}" ajax="false"/>
+				
+				<p:commandButton class="ui-button" value="Reset"
+				onclick="reset()" />
+		</div>
+
+	</h:form>
+
+
+
+</h:body>
+<!-- Webpage developed by Saurabh Singh
+G01042581
+ -->
+</h:html>

@@ -1,0 +1,39 @@
+<!-- 
+SWE 654
+Assignment 2
+Saurabh Singh
+
+This is a Winner page, This is mapped against a string value in the jsf config file.
+whenever any user submits a survey form and the calculated value of the raffle (10 number entered by them
+in the raffle field) is more than 90, then they will see this page. This page will display the 
+first name, last name, Mean and standard deviation of the raffle. It will also notify the user
+that they have won 2 free movie ticket.
+ -->
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+   <h:head>
+   		<title> Winner Page</title>
+   		<h:link value="Go to main Page" outcome="index"/><br/>
+   		<h:link value = "fill another survey" outcome="survey"/><br/>
+   </h:head>
+   
+   <h:body>
+   		<h1>Congratulations ! ! !</h1><br/>
+   		<h3> You have won 2 free movie tickets. </h3><br/>
+   		
+   		<ul>
+               <li>First name: #{studentInfo.firstName}</li> 
+               <li>Last name: #{studentInfo.lastName}</li> 
+               <li>Mean: #{studentInfo.mean}</li>
+               <li>Standard Deviation: #{studentInfo.sdev}</li>
+          </ul>
+   </h:body>
+   
+   
+</html>
+

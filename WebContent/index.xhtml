@@ -1,0 +1,93 @@
+<!-- 
+SWE 654
+Assignment 1
+Saurabh Singh
+
+Index file containing the basic satic web page that would be uploaded on AWS S3
+ -->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<h:html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+	<title>Insert title here</title>
+
+	<style type="text/css">
+#header {
+	color: White;
+	padding: 15px;
+	font-size: 30px;
+	line-height: 2px;
+	background-color: #217c7a;
+	padding: 65px;
+	text-align: center;
+}
+
+img {
+	max-width: 90%;
+	max-height: 90%;
+}
+
+#sub {
+	color: black;
+	padding: 100 px;
+	width: :100px;
+	height: 50px;
+	text-align: center;
+}
+
+.centered {
+	margin: 0px auto;
+}
+
+.ui-button {
+	width: 200px;
+	height: 200px;
+	color: #277B79;
+
+}
+</style>
+
+</h:head>
+
+<h:body>
+	<h:form>
+		<div id="header">
+			<h1 style="text-align: center">Welcome to SWE 645</h1>
+			<br />
+			<h3 style="text-align: center">Department of computer science</h3>
+			<h5>Saurabh Singh</h5>
+		</div>
+		<div align="center" >
+			<h:graphicImage value="/suit.jpg" style="height:400px;width:300px"/>
+		</div>
+		<div align="center">
+
+
+			
+				<h:commandButton class="ui-button"
+					value="click here to fill a survey" action="survey" /><br/><br/>
+			
+
+			
+				<h:commandButton class="ui-button"
+					value="click here to view all the surveys" action="display" /><br/><br/>
+			
+
+
+
+
+
+		</div>
+
+	</h:form>
+
+</h:body>
+<!-- Webpage developed by Saurabh Singh
+G01042581
+ -->
+</h:html>

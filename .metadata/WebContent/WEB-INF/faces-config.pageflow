@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf15205547007460" configfile="/swe-645-hw3/WebContent/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="SurveyForm.xhtml" x="122" y="178" id="pf15205741104641" referenceLink="//@navigationRule.0/@fromViewId|" path="/SurveyForm.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="Thanks.xhtml" x="338" y="562" id="pf152057411896311" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf152071199312317" path="/Thanks.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="Winner.xhtml" x="338" y="946" id="pf152057411896312" referenceLink="//@navigationRule.0/@navigationCase.1/@toViewId|" inlinks="pf15207948055640" path="/Winner.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="display.xhtml" x="122" y="562" id="pf152057411896313" referenceLink="//@navigationRule.0/@navigationCase.2/@toViewId|" path="/display.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="Survey.xhtml" x="122" y="946" id="pf152057670502014" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf152071199312317 pf15207948055640 pf15207948055641" path="/survey.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="index.xhtml" x="122" y="1330" id="pf152057670502016" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" path="/Thanks.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="Display.xhtml" x="338" y="1330" id="pf15207948055642" referenceLink="//@navigationRule.0/@navigationCase.2/@toViewId|" inlinks="pf15207948055641" path="/Display.xhtml"/>
+  <links id="pf152071199312317" target="pf152057411896311" source="pf152057670502014"/>
+  <links id="pf15207948055640" target="pf152057411896312" source="pf152057670502014"/>
+  <links id="pf15207948055641" target="pf15207948055642" source="pf152057670502014"/>
+</pageflow:Pageflow>

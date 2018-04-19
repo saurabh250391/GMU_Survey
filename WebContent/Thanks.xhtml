@@ -1,0 +1,29 @@
+<!-- 
+SWE 654
+Assignment 2
+Saurabh Singh
+
+This is a Thankyou page, It is mapped against a string value in the jsf config file.
+whenever any user submits a survey form and the calculated value of the raffle (10 number entered by them
+in the raffle field) is less tahn 90, then they will see this page. This page is just thanking user
+for filling the survey form.
+ -->
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Thank you for filling out the survey</title>
+    </h:head>
+    
+    <h:body>
+    <h:link value="Go back to Main page" outcome="index"></h:link>
+        <h1 align= "center">Thank You</h1>
+        <h1> Thank you for filling out the Survey Form. Your data has been saved</h1>
+          
+    </h:body>
+</html>
+
